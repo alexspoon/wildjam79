@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3o4olsa5v44e"]
+
+[ext_resource type="Script" uid="uid://ba0xuh36hnxwo" path="res://scripts/PIDController.cs" id="1_rh1sq"]
+
+[node name="PIDController" type="Node"]
+script = ExtResource("1_rh1sq")
+ProportionalGain = 3.0
+DerivativeGain = 0.8

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxc2sfjw85ob1"]
+
+[ext_resource type="PackedScene" uid="uid://d3o4olsa5v44e" path="res://scenes/PIDController/PIDController.tscn" id="1_p0vlq"]
+[ext_resource type="Script" uid="uid://c6vcg6djejt1a" path="res://scripts/Player.cs" id="1_v6fml"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5q5h1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5q5h1"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_v6fml")
+_speed = 50.0
+_jumpForce = 10.0
+_mouseSensitivity = 0.5
+_maxHealth = 100
+_grabRange = 5.0
+
+[node name="PIDController" parent="." instance=ExtResource("1_p0vlq")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Camera" type="Camera3D" parent="Head"]
+
+[node name="GrabRay" type="RayCast3D" parent="Head"]
+
+[node name="GrabMarker" type="Marker3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_5q5h1")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5q5h1")
