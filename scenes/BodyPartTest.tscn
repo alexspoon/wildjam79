@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://blshjbncwmkoa"]
+[gd_scene load_steps=6 format=3 uid="uid://blshjbncwmkoa"]
 
 [ext_resource type="Script" uid="uid://or7glw6stfrw" path="res://scripts/components/BodyPart.cs" id="1_hgbra"]
+[ext_resource type="FontFile" uid="uid://btmo5xwky60ql" path="res://assets/fonts/yoster.ttf" id="2_weo72"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_weo72"]
 albedo_color = Color(0.494118, 0, 0, 1)
@@ -15,7 +16,6 @@ size = Vector3(0.5, 0.5, 0.5)
 script = ExtResource("1_hgbra")
 MaxBodyPartValue = 1000.0
 MinBodyPartValue = 500.0
-GrowthRate = 2.0
 metadata/_custom_type_script = "uid://or7glw6stfrw"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -24,3 +24,19 @@ mesh = SubResource("BoxMesh_wokbo")
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_86qaa")
+
+[node name="TypeLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+billboard = 2
+render_priority = 1
+outline_render_priority = 0
+font = ExtResource("2_weo72")
+font_size = 16
+
+[node name="ValueLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+billboard = 2
+render_priority = 1
+outline_render_priority = 0
+font = ExtResource("2_weo72")
+font_size = 16

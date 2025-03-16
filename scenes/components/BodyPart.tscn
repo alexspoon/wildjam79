@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://c12omt2rd7sfg"]
+[gd_scene load_steps=3 format=3 uid="uid://c12omt2rd7sfg"]
 
 [ext_resource type="Script" uid="uid://or7glw6stfrw" path="res://scripts/components/BodyPart.cs" id="1_n6a8t"]
+[ext_resource type="FontFile" uid="uid://btmo5xwky60ql" path="res://assets/fonts/yoster.ttf" id="2_lti4c"]
 
 [node name="BodyPart" type="RigidBody3D"]
 script = ExtResource("1_n6a8t")
+
+[node name="TypeLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+billboard = 2
+render_priority = 1
+outline_render_priority = 0
+font = ExtResource("2_lti4c")
+font_size = 16
+
+[node name="ValueLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+billboard = 2
+render_priority = 1
+outline_render_priority = 0
+font = ExtResource("2_lti4c")
+font_size = 16

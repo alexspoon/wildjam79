@@ -198,6 +198,11 @@ public partial class Player : CharacterBody3D
     {
         if (Input.IsActionJustPressed("inputE") && _grabbedCount > 0)
         {
+            if (_grabbedBody is BodyPart)
+            {
+                var grabbedPart = _grabbedBody as BodyPart;
+                grabbedPart.Grabbed = false;
+            }
             _grabbedBody = null;
             _grabbedCount = 0;
             _grabMarker.Position = _defaultGrabMarkerPosition;
@@ -226,6 +231,11 @@ public partial class Player : CharacterBody3D
         if (!IsInstanceValid(_grabbedBody))
         {
             _grabbedCount = 0;
+            if (_grabbedBody is BodyPart)
+            {
+                var grabbedPart = _grabbedBody as BodyPart;
+                grabbedPart.Grabbed = false;
+            }
             _grabbedBody = null;
             return;
         }
@@ -233,6 +243,11 @@ public partial class Player : CharacterBody3D
         if (_grabbedBody.Freeze)
         {
             _grabbedCount = 0;
+            if (_grabbedBody is BodyPart)
+            {
+                var grabbedPart = _grabbedBody as BodyPart;
+                grabbedPart.Grabbed = false;
+            }
             _grabbedBody = null;
             return;
         }
@@ -270,13 +285,13 @@ public partial class Player : CharacterBody3D
         var objVel = _grabbedBody.LinearVelocity;
         objVel = targetMove;
         _grabbedBody.LinearVelocity = objVel;
-        //_grabbedBody.LookAt(_head.GlobalPosition);
+        _grabbedBody.LookAt(_head.GlobalPosition);
 
-        // if (_grabbedBody is BodyPart)
-        // {
-        //     var grabbedPart = _grabbedBody as BodyPart;
-        //     GD.Print(grabbedPart.BodyPartValue);
-        // }
+        if (_grabbedBody is BodyPart)
+        {
+            var grabbedPart = _grabbedBody as BodyPart;
+            grabbedPart.Grabbed = true;
+        }
     }
     
     //Handle player damage
