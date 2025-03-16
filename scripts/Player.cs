@@ -20,6 +20,9 @@ public partial class Player : CharacterBody3D
     //Movement variables
     [Export] private float _speed;
     [Export] private float _jumpForce;
+    [Export] private float sprintMultiplier;
+    private float _initialSpeed;
+    private float _sprintSpeed;
     private float _currentSpeed;
     private Basis _basis;
     
@@ -41,6 +44,7 @@ public partial class Player : CharacterBody3D
     
     //Grab variables
     [Export] private float _grabRange;
+    private Vector3 _defaultGrabMarkerPosition;
     private int _grabbedCount;
     private PIDController _pid;
     private RigidBody3D _grabbedBody;
@@ -85,7 +89,12 @@ public partial class Player : CharacterBody3D
         }
     }
     
-    //Called every physics frame
+    //Called every frame
+    public override void _Process(double delta)
+    {
+    }
+
+    //Called every physics tick
     public override void _PhysicsProcess(double delta)
     {
         //If player is dead, queue for deletion and stop calling functions
@@ -110,9 +119,10 @@ public partial class Player : CharacterBody3D
         EmitSignalPlayerSpawn();
         _alive = true;
         _currentHealth = _maxHealth;
-        var grabRayTargetPos = _grabRay.TargetPosition;
-        grabRayTargetPos.Z = -_grabRange;
-        _grabRay.TargetPosition = grabRayTargetPos;
+        _initialSpeed = _speed;
+        _sprintSpeed = _initialSpeed * sprintMultiplier;
+        _defaultGrabMarkerPosition =  _grabMarker.Position;
+        _grabRay.TargetPosition = new Vector3(0,0, -_grabRange);
     }
     
     //Handles player movement
@@ -126,17 +136,22 @@ public partial class Player : CharacterBody3D
         var inputVector3 = new Vector3(inputVector2.X, 0, inputVector2.Y).Normalized();
         //Align player input vector to treat basis forward direction as forward movement direction
         inputVector3 = _basis *  inputVector3;
+        //If sprinting, increase speed
+        if (_sprinting)
+        {
+            _speed = _sprintSpeed;
+        } else _speed = _initialSpeed;
         //Create a target velocity using the input direction, and multiply it by speed value
         var targetVelocity = inputVector3 * _speed * (float)delta;
-        //If jump input is pressed, apply jump force
-        if (Input.IsActionJustPressed("inputSpace"))
-        {
-            targetVelocity.Y = _jumpForce;
-        }
         //If player is in air, apply gravity
         if (!IsOnFloor())
         {
             targetVelocity.Y -= 9.82f;
+        }
+        //If jump input is pressed, apply jump force
+        if (Input.IsActionJustPressed("inputSpace"))
+        {
+            targetVelocity.Y = _jumpForce;
         }
         //Set current velocity to target velocity
         Velocity = targetVelocity;
@@ -184,6 +199,8 @@ public partial class Player : CharacterBody3D
         if (Input.IsActionJustPressed("inputE") && _grabbedCount > 0)
         {
             _grabbedBody = null;
+            _grabbedCount = 0;
+            _grabMarker.Position = _defaultGrabMarkerPosition;
             return;
         }
         
@@ -199,6 +216,7 @@ public partial class Player : CharacterBody3D
                 _pid.ValueLastX = _grabbedBody.Position.X;
                 _pid.ValueLastY = _grabbedBody.Position.Y;
                 _pid.ValueLastZ = _grabbedBody.Position.Z;
+                GD.Print("grabbed");
             }
         }
     }
@@ -212,11 +230,38 @@ public partial class Player : CharacterBody3D
             return;
         }
 
+        if (_grabbedBody.Freeze)
+        {
+            _grabbedCount = 0;
+            _grabbedBody = null;
+            return;
+        }
+        
         if (_grabbedBody == null)
             return;
 
         if (_grabbedCount == 0)
             return;
+        
+        if (Input.IsActionJustPressed("inputScrollUp"))
+        {
+            var markerPos = _grabMarker.Position;
+            markerPos.Z -= 0.5f;
+            _grabMarker.Position = markerPos;
+        }
+        if (Input.IsActionJustPressed("inputScrollDown"))
+        {
+            var markerPos = _grabMarker.Position;
+            markerPos.Z += 0.5f;
+            if (markerPos.Z > -1f)
+                markerPos.Z = -1f;
+            _grabMarker.Position = markerPos;
+        }
+
+        if (Input.IsActionJustPressed("inputMiddleMouse"))
+        {
+            _grabMarker.Position = _defaultGrabMarkerPosition;
+        }
         
         var objPos = _grabbedBody.GlobalPosition;
         var targetPos = _grabMarker.GlobalPosition;
@@ -225,6 +270,13 @@ public partial class Player : CharacterBody3D
         var objVel = _grabbedBody.LinearVelocity;
         objVel = targetMove;
         _grabbedBody.LinearVelocity = objVel;
+        //_grabbedBody.LookAt(_head.GlobalPosition);
+
+        // if (_grabbedBody is BodyPart)
+        // {
+        //     var grabbedPart = _grabbedBody as BodyPart;
+        //     GD.Print(grabbedPart.BodyPartValue);
+        // }
     }
     
     //Handle player damage

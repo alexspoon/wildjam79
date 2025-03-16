@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://blshjbncwmkoa"]
+
+[ext_resource type="Script" uid="uid://or7glw6stfrw" path="res://scripts/components/BodyPart.cs" id="1_hgbra"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_weo72"]
+albedo_color = Color(0.494118, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wokbo"]
+material = SubResource("StandardMaterial3D_weo72")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_86qaa"]
+
+[node name="BodyPart" type="RigidBody3D"]
+script = ExtResource("1_hgbra")
+metadata/_custom_type_script = "uid://or7glw6stfrw"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_wokbo")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_86qaa")

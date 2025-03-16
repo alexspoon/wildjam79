@@ -11,11 +11,13 @@
 script = ExtResource("1_v6fml")
 _speed = 50.0
 _jumpForce = 10.0
+sprintMultiplier = 1.5
 _mouseSensitivity = 0.5
 _maxHealth = 100
-_grabRange = 5.0
+_grabRange = 100.0
 
 [node name="PIDController" parent="." instance=ExtResource("1_p0vlq")]
+ProportionalGain = 2.0
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -30,6 +32,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 [node name="Camera" type="Camera3D" parent="Head"]
 
 [node name="GrabRay" type="RayCast3D" parent="Head"]
+target_position = Vector3(0, 0, 0)
+debug_shape_custom_color = Color(0.954235, 0, 0.270737, 1)
 
 [node name="GrabMarker" type="Marker3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
