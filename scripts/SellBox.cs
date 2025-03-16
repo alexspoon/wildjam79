@@ -6,7 +6,7 @@ public partial class SellBox : StaticBody3D
     private Area3D _sellArea;
     private Timer _sellTimer;
     private Label3D _moneyLabel;
-    private int _currentMoney;
+    private float _currentMoney;
 
     public override void _Ready()
     {
@@ -28,7 +28,8 @@ public partial class SellBox : StaticBody3D
             if (body is BodyPart)
             {
                 var bodyPart = body as BodyPart;
-                _currentMoney += bodyPart.BodyPartValue;
+                _currentMoney += bodyPart.BodyPartCurrentValue;
+                Mathf.Round(_currentMoney);
                 _moneyLabel.Text = "\u20bd"  + _currentMoney;
                 body.QueueFree();
             }

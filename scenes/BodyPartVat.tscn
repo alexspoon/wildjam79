@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://nylpmpba832f"]
+[gd_scene load_steps=9 format=3 uid="uid://nylpmpba832f"]
 
 [ext_resource type="Script" uid="uid://oe5dntmib2b2" path="res://scripts/BodyPartVat.cs" id="1_hnwom"]
+[ext_resource type="FontFile" uid="uid://btmo5xwky60ql" path="res://assets/fonts/yoster.ttf" id="2_nnx5m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnwom"]
 albedo_color = Color(0.400743, 0.400743, 0.400743, 1)
@@ -29,6 +30,16 @@ radius = 0.75
 
 [node name="BodyPartVat" type="StaticBody3D"]
 script = ExtResource("1_hnwom")
+
+[node name="ValueLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+billboard = 2
+font = ExtResource("2_nnx5m")
+
+[node name="GrowthLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+billboard = 2
+font = ExtResource("2_nnx5m")
 
 [node name="PartMarker" type="Marker3D" parent="."]
 

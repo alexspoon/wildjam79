@@ -13,6 +13,9 @@ size = Vector3(0.5, 0.5, 0.5)
 
 [node name="BodyPart" type="RigidBody3D"]
 script = ExtResource("1_hgbra")
+MaxBodyPartValue = 1000.0
+MinBodyPartValue = 500.0
+GrowthRate = 2.0
 metadata/_custom_type_script = "uid://or7glw6stfrw"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

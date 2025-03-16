@@ -9,25 +9,26 @@ public partial class BodyPartVat : StaticBody3D
     private Area3D _inputArea;
     private Marker3D _outputMarker;
     private Marker3D _partMarker;
-    
     private Player _player;
     private RayCast3D _playerRay;
-    
     private BodyPart _bodyPart;
     private Array<BodyPart> _overlappingParts = [];
-    
     private Vector3 _outputPosition;
     private Vector3 _partPosition;
+    private Label3D _valueLabel;
+    private Label3D _growthLabel;
     
     public override void _Ready()
     {
         _inputArea = GetNode<Area3D>("InputArea");
         _outputMarker = GetNode<Marker3D>("OutputMesh/OutputMarker");
         _partMarker = GetNode<Marker3D>("PartMarker");
-        _outputPosition =  _outputMarker.GlobalPosition;
-        _partPosition = _partMarker.GlobalPosition;
         _player = GetNode<Player>("../Player");
         _playerRay = _player.GetNode<RayCast3D>("Head/GrabRay");
+        _valueLabel = GetNode<Label3D>("ValueLabel");
+        _growthLabel = GetNode<Label3D>("GrowthLabel");
+        _outputPosition =  _outputMarker.GlobalPosition;
+        _partPosition = _partMarker.GlobalPosition;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -71,12 +72,16 @@ public partial class BodyPartVat : StaticBody3D
         _bodyPart.RotateX(0.0025f);
         _bodyPart.RotateY(0.0025f);
         _bodyPart.RotateZ(0.0025f);
-        _bodyPart.BodyPartValue += 1;
-        GD.Print(_bodyPart.BodyPartValue);
+        _bodyPart.Growing = true;
+        _valueLabel.Text = "\u20bd" + _bodyPart.BodyPartCurrentValue;
+        _growthLabel.Text = Mathf.Round(_bodyPart.GrowthPercentage) + "%";
 
         if (_playerRay.IsColliding() && _playerRay.GetCollider() == this && Input.IsActionJustPressed("inputE"))
         {
             _bodyPart.Hide();
+            _valueLabel.Text = null;
+            _growthLabel.Text = null;
+            _bodyPart.Growing = false;
             OutputPart();
         }
 }
