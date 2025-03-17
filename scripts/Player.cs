@@ -286,7 +286,7 @@ public partial class Player : CharacterBody3D
         objVel = targetMove;
         _grabbedBody.LinearVelocity = objVel;
         _grabbedBody.LookAt(_head.GlobalPosition);
-
+        
         if (_grabbedBody is BodyPart)
         {
             var grabbedPart = _grabbedBody as BodyPart;

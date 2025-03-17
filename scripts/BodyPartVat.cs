@@ -91,7 +91,7 @@ public partial class BodyPartVat : StaticBody3D
         _bodyPart.GlobalPosition = _outputPosition;
         _bodyPart.Freeze = false;
         _bodyPart.Show();
-        _bodyPart.ApplyCentralImpulse(new Vector3(0,0, Position.Z));
+        _bodyPart.ApplyCentralImpulse(new Vector3(0,0, -5));
         _bodyPart = null;
         _inUse = false;
     }

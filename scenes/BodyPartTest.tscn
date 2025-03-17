@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blshjbncwmkoa"]
+[gd_scene load_steps=11 format=3 uid="uid://blshjbncwmkoa"]
 
 [ext_resource type="Script" uid="uid://or7glw6stfrw" path="res://scripts/components/BodyPart.cs" id="1_hgbra"]
 [ext_resource type="FontFile" uid="uid://btmo5xwky60ql" path="res://assets/fonts/yoster.ttf" id="2_weo72"]
@@ -12,10 +12,35 @@ size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_86qaa"]
 
+[sub_resource type="Curve" id="Curve_weo72"]
+_data = [Vector2(0.00819672, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wokbo"]
+curve = SubResource("Curve_weo72")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86qaa"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 7.5
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_wokbo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jbysq"]
+albedo_color = Color(0.479265, 0.105947, 0.109657, 1)
+roughness = 0.2
+clearcoat_roughness = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kipf4"]
+material = SubResource("StandardMaterial3D_jbysq")
+radius = 0.1
+height = 0.2
+radial_segments = 4
+rings = 2
+
 [node name="BodyPart" type="RigidBody3D"]
 script = ExtResource("1_hgbra")
-MaxBodyPartValue = 1000.0
-MinBodyPartValue = 500.0
 metadata/_custom_type_script = "uid://or7glw6stfrw"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -23,6 +48,7 @@ mesh = SubResource("BoxMesh_wokbo")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
 shape = SubResource("BoxShape3D_86qaa")
 
 [node name="TypeLabel" type="Label3D" parent="."]
@@ -40,3 +66,12 @@ render_priority = 1
 outline_render_priority = 0
 font = ExtResource("2_weo72")
 font_size = 16
+
+[node name="BloodParticles" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 32
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_86qaa")
+draw_pass_1 = SubResource("SphereMesh_kipf4")
