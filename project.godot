@@ -15,6 +15,15 @@ run/main_scene="uid://q35r0y1liify"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameManager="*res://scripts/GameManager.cs"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [dotnet]
 
 project/assembly_name="wildjam79"
@@ -76,3 +85,7 @@ inputMiddleMouse={
 
 3d/physics_engine="Jolt Physics"
 common/physics_interpolation=true
+
+[rendering]
+
+scaling_3d/scale=0.75

@@ -194,7 +194,7 @@ public partial class BodyPart : RigidBody3D
         var level3 = (Array<BodyPartTypes>)BodyPartTypePools["level3"];
         var level4 = (Array<BodyPartTypes>)BodyPartTypePools["level4"];
         var level5 = (Array<BodyPartTypes>)BodyPartTypePools["level5"];
-        AvailableParts = level1 + level2 + level3 + level4 + level5;
+        AvailableParts = level1 + level2;
 
         var rnd = new Random();
         var index = rnd.Next(AvailableParts.Count);

@@ -14,7 +14,7 @@ _jumpForce = 10.0
 sprintMultiplier = 1.5
 _mouseSensitivity = 0.5
 _maxHealth = 100
-_grabRange = 100.0
+_grabRange = 2.5
 
 [node name="PIDController" parent="." instance=ExtResource("1_p0vlq")]
 ProportionalGain = 2.0

@@ -1,9 +1,6 @@
-[gd_scene load_steps=13 format=4 uid="uid://dyg36pr6et1se"]
+[gd_scene load_steps=6 format=4 uid="uid://dyg36pr6et1se"]
 
 [ext_resource type="Script" uid="uid://cb87omsw0bjgf" path="res://scripts/SellBox.cs" id="1_0e26s"]
-[ext_resource type="Texture2D" uid="uid://bepasf6i2xwve" path="res://assets/textures/planks_hr_2.png" id="1_gtwdb"]
-[ext_resource type="PackedScene" uid="uid://bsaw3m4qw0t8c" path="res://scenes/SellScreen.tscn" id="2_p4ku0"]
-[ext_resource type="PackedScene" uid="uid://dmwtaypx3gx00" path="res://assets/models/keyboard_1.glb" id="4_0e26s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfxi2"]
 albedo_color = Color(0.268837, 0.268837, 0.268837, 1)
@@ -26,28 +23,6 @@ data = PackedVector3Array(1, -0.25, 0.5, 1, -0.25, -0.5, -1, -0.25, -0.5, 1, 0.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_hfxi2"]
 size = Vector3(1.9, 0.1, 0.9)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hfxi2"]
-data = PackedVector3Array(0.5, -0.5, 0.5, 0.4, -0.5, 0.5, 0.4, 0.4, 0.5, -0.5, 0.4, 0.4, -0.5, 0.5, 0.5, -0.5, -0.5, 0.4, -0.5, 0.5, 0.5, -0.4, 0.4, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.4, 0.4, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.4, 0.4, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.4, -0.4, -0.5, -0.5, -0.5, -0.5, -0.5, 0.4, -0.5, -0.5, 0.5, -0.5, -0.4, 0.5, -0.5, -0.5, 0.4, -0.5, -0.5, 0.5, -0.5, -0.5, 0.4, 0.4, -0.5, 0.5, -0.5, -0.4, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.4, -0.5, 0.4, 0.4, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.4, 0.4, -0.5, 0.4, 0.4, -0.5, -0.4, 0.5, -0.5, -0.4, 0.4, -0.5, -0.5, 0.5, -0.5, 0.4, 0.5, -0.5, 0.5, 0.5, 0.4, 0.4, 0.4, 0.4, -0.5, 0.5, 0.5, -0.5, -0.4, 0.4, -0.5, 0.5, 0.5, -0.5, 0.4, 0.4, -0.5, 0.5, -0.5, -0.5, 0.5, 0.4, -0.4, 0.5, 0.5, -0.5, 0.5, -0.5, -0.4, 0.5, 0.5, -0.5, 0.5, 0.4, -0.4, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.4, 0.4, 0.5, -0.4, 0.4, 0.5, 0.5, -0.5, 0.5, 0.4, 0.4, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.4, 0.4, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.4, -0.4, 0.5, 0.4, 0.4, -0.5, 0.5, -0.5, -0.5, 0.4, 0.4, -0.5, 0.4, -0.4, -0.4, -0.5, 0.5, -0.5, -0.5, 0.5, -0.4, 0.4, 0.5, -0.5, 0.5, -0.5, -0.5, 0.4, -0.4, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.4, -0.5, -0.5, -0.5, 0.5, -0.5, -0.4, 0.4, -0.5, -0.5, 0.5, -0.5, -0.4, -0.5, -0.5, -0.5, 0.4, -0.4, -0.5, -0.5, -0.4, -0.5, -0.5, -0.5, -0.5, -0.5, 0.4, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.4, -0.4, -0.5, 0.5, -0.4, -0.5, 0.4, -0.4, 0.4, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.4, -0.5, 0.5, -0.5, -0.5, 0.4, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.4, -0.4, -0.5, -0.4, -0.4, -0.5, -0.5, 0.5, -0.5, -0.4, 0.4, 0.4, -0.4, 0.5, 0.4, -0.4, 0.5, 0.4, -0.4, -0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.5, 0.4, -0.4, 0.4, 0.4, -0.4, -0.5, 0.4, 0.4, -0.4, 0.4, 0.4, -0.5, -0.5, 0.4, -0.4, -0.5, 0.4, -0.5, -0.5, 0.4, -0.4, 0.4, 0.4, -0.5, 0.4, 0.4, 0.5, 0.4, 0.4, 0.4, -0.5, 0.4, 0.5, -0.5, 0.4, -0.4, -0.5, -0.4, -0.5, 0.4, -0.4, -0.4, 0.4, -0.4, 0.4, -0.5, 0.4, 0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, -0.4, 0.5, -0.5, -0.4, 0.4, -0.5, -0.4, -0.4, -0.5, -0.4, -0.5, -0.5, -0.4, -0.5, 0.4, -0.4, -0.4, 0.4, -0.4, -0.5, 0.4, -0.4, -0.5, 0.4, 0.4, 0.4, 0.4, 0.4, 0.5, 0.4, 0.4, 0.5, 0.4, -0.4, -0.5, 0.4, 0.4, -0.4, 0.4, 0.4, 0.5, 0.4, -0.4, -0.5, 0.4, 0.4, 0.4, 0.4, -0.4, -0.4, 0.4, -0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.5, 0.4, -0.5, 0.4, 0.4, 0.4, 0.5, 0.4, 0.4, 0.4, -0.4, 0.4, 0.4, -0.4, -0.5, 0.4, -0.4, -0.5, 0.5, -0.4, 0.4, 0.4, -0.4, 0.4, -0.5, -0.4, -0.5, -0.5, -0.4, -0.5, -0.4, 0.4, -0.5, -0.5, 0.4, 0.4, -0.5, 0.4, 0.4, -0.4, -0.4, 0.4, -0.4, 0.4, 0.4, -0.4, 0.4, 0.4, -0.5, 0.4, 0.4, 0.5, 0.4, -0.5, 0.5, 0.4, -0.5, 0.4, -0.4, 0.4, -0.4, -0.4, 0.4, -0.5, -0.4, -0.5, -0.4, 0.4, 0.4, -0.4, 0.4, -0.5, -0.4, 0.4, -0.5, -0.5, -0.4, 0.4, -0.4, 0.4, 0.4, -0.5, -0.4, 0.4, -0.5, -0.4, 0.4, 0.5, 0.4, 0.4, 0.5, -0.4, 0.4, 0.4, -0.4, -0.5, 0.5, -0.4, 0.4, 0.5, -0.4, 0.4, 0.4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0e26s"]
-albedo_texture = ExtResource("1_gtwdb")
-uv1_scale = Vector3(10, 10, 10)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_p4ku0"]
-_surfaces = [{
-"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
-"attribute_data": PackedByteArray("q6qqPgAAAD+amZk+AAAAP5qZmT7IzEw9mpmZPszMDD+rqqo+AAAAP5qZmT4AAIA/AAAAAAAAAACLiAg9yMxMPQAAAAAAAAA/q6qqPgAAAD+amZk+zMwMPwAAAAAAAAA/q6qqPgAAAACLiAg9yMxMPQAAAAAAAAAAq6oqPzMzcz80MzM/AACAP6uqKj8AAIA/eHd3PwAAgD8AAIA/MzNzPwAAgD8AAIA/MzMzPwAAAD+rqio/AAAAPzMzMz/IzEw9IiIiPwAAAD+rqio/AAAAAKuqKj8AAAA/AACAPwAAAD94d3c/zcwMP3h3dz8AAAA/AACAPwAAAD8AAIA/zcwMP3h3dz/NzAw/eHd3PzMzcz8AAIA/MzNzP3h3dz8AAIA/vLu7PgAAAD+rqqo+AAAAP7y7uz7IzEw9MzMzP8jMTD2rqio/AAAAAHd3dz/IzEw9q6oqPwAAAAAzMzM/yMxMPauqKj8AAAA/IiIiP8jMTD2rqio/AAAAACIiIj8AAAA/q6oqPwAAAAAiIiI/yMxMPauqqj4AAAAAq6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6qqPgAAAACamZk+yMxMPYuICD3IzEw9q6qqPgAAAD+amZk+yMxMPauqqj4AAAAAq6qqPgAAAAC8u7s+yMxMPauqqj4AAAA/q6qqPgAAAAAiIiI/yMxMPby7uz7IzEw9AAAAAAAAAD+amZk+zMwMP4iICD3MzAw/i4gIPQAAAD8AAAAAAAAAP4uICD3IzEw9AAAAAAAAAD+IiAg9zMwMPwAAAAAAAIA/AACAPwAAAD93d3c/AAAAPwAAgD8AAAAAd3d3P8jMTD0AAIA/AAAAAHd3dz8AAAA/iIgIPczMDD+IiAg9AACAPwAAAAAAAIA/mpmZPgAAgD+rqqo+AAAAP6uqqj4AAIA/q6oqP83MDD80MzM/AAAAPzQzMz/NzAw/d3d3P8jMTD2rqio/AAAAAAAAgD8AAAAAq6oqPwAAAD80MzM/AAAAP6uqKj/NzAw/q6oqPwAAAD+rqio/AACAP6uqqj4AAIA/q6oqPzMzcz80MzM/MzNzPzQzMz8AAIA/uqqqPQAAAACwqio+AACAP7qqqj0AAIA/AACAP7qqqj0AAAAAVlVVPwAAAACwqio+AACAP7qqqj0AAIA/sKoqPgAAAACsqmo/VlVVPwAAAACsqmo/AACAP1ZVVT8AAIA/rKpqPwAAgD9WVVU/AAAAAKyqaj8AAAAAuqqqPQAAAACwqio+AACAP7qqqj0AAIA/VlVVPwAAAACsqmo/AACAP1ZVVT8AAIA/sKoqPgAAgD+6qqo9AAAAALCqKj4AAAAAsKoqPgAAgD+6qqo9AAAAALCqKj4AAAAAVlVVPwAAAACsqmo/AAAAAKyqaj8AAIA/AACAP1ZVVT8AAIA/rKpqPwAAAACsqmo/AAAAALCqKj4AAAAAuqqqPQAAgD+6qqo9AAAAAKyqaj8AAAAAVlVVPwAAgD+6qqo9AAAAAKyqaj8AAIA/sKoqPgAAgD9WVVU/AAAAAMzMzD0AAAAAAAAAAAAAgD/MzMw9AAAAAAAAAADMzMw9AAAAAMzMzD0AAIA/AACAP2ZmZj8AAIA/AACAPwAAAABmZmY/AAAAAAAAAAAAAIA/AAAAAAAAgD/MzMw9AACAPwAAgD8AAAAAAACAPwAAAABmZmY/Z2ZmPwAAgD9nZmY/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD/MzMw9AAAAAMzMzD0AAAAAAAAAAAAAgD/MzMw9AAAAAGZmZj8AAIA/ZmZmPwAAgD8AAIA/Z2ZmPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAgD8AAAAAAAAAAMzMzD0AAIA/AACAPwAAgD8AAAAAAACAPwAAAABmZmY/"),
-"format": 34359738391,
-"material": SubResource("StandardMaterial3D_0e26s"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 180,
-"vertex_data": PackedByteArray("AAAAPwAAAL8AAAA/zszMPgAAAL8AAAA/zszMPs7MzD4AAAA/AAAAv87MzD7NzMw+AAAAvwAAAD8AAAA/AAAAvwAAAL/NzMw+AAAAvwAAAD8AAAA/zMzMvs7MzD4AAAA/AAAAvwAAAL8AAAA/AAAAvwAAAD8AAAA/AAAAv87MzD7NzMw+AAAAvwAAAD8AAAC/AAAAPwAAAD8AAAA/zMzMvs7MzD4AAAA/AAAAvwAAAD8AAAA/AAAAvwAAAL/NzMy+zMzMvgAAAL8AAAC/AAAAvwAAAL8AAAC/zszMPgAAAL8AAAC/AAAAPwAAAL/NzMy+AAAAPwAAAL8AAAC/zszMPgAAAL8AAAC/AAAAPwAAAL8AAAC/zszMPs7MzD4AAAC/AAAAPwAAAL/NzMy+AAAAPwAAAD8AAAC/AAAAPwAAAL8AAAC/AAAAPwAAAL8AAAA/zszMPgAAAL/NzMw+zszMPgAAAL8AAAA/AAAAPwAAAL8AAAA/AAAAPwAAAL/NzMw+zszMPgAAAL/NzMw+zszMPgAAAL/NzMy+AAAAPwAAAL/NzMy+zszMPgAAAL8AAAC/AAAAPwAAAL/NzMw+AAAAPwAAAL8AAAA/AAAAP87MzD7NzMw+zszMPs7MzD4AAAC/AAAAPwAAAD8AAAC/zMzMvs7MzD4AAAC/AAAAPwAAAD8AAAC/zszMPs7MzD4AAAC/AAAAPwAAAL8AAAC/AAAAP87MzD7NzMy+AAAAPwAAAD8AAAC/AAAAPwAAAL/NzMy+AAAAPwAAAD8AAAC/AAAAP87MzD7NzMy+AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAC/AAAAPwAAAD8AAAA/AAAAvwAAAD8AAAA/AAAAPwAAAD8AAAA/zszMPs7MzD4AAAA/zMzMvs7MzD4AAAA/AAAAPwAAAL8AAAA/zszMPs7MzD4AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAP87MzD7NzMw+AAAAPwAAAL8AAAA/AAAAPwAAAD8AAAA/AAAAP87MzD7NzMy+AAAAP87MzD7NzMw+AAAAvwAAAD8AAAC/AAAAv87MzD7NzMw+AAAAv87MzD7NzMy+zMzMvgAAAL8AAAA/AAAAvwAAAL8AAAA/zMzMvs7MzD4AAAA/AAAAvwAAAD8AAAC/AAAAv87MzD7NzMy+AAAAvwAAAL8AAAC/AAAAvwAAAL8AAAC/zMzMvgAAAL8AAAC/AAAAvwAAAD8AAAC/zMzMvs7MzD4AAAC/AAAAvwAAAD8AAAC/zMzMvgAAAL8AAAC/AAAAv87MzD7NzMy+AAAAvwAAAL/NzMy+AAAAvwAAAL8AAAC/AAAAvwAAAL/NzMw+AAAAvwAAAD8AAAA/AAAAvwAAAL8AAAA/AAAAvwAAAL/NzMw+zMzMvgAAAL8AAAA/zMzMvgAAAL/NzMw+zMzMvs7MzD4AAAC/AAAAPwAAAD8AAAC/AAAAvwAAAD8AAAC/AAAAvwAAAL8AAAA/zMzMvgAAAL8AAAA/AAAAvwAAAL/NzMw+AAAAvwAAAD8AAAA/AAAAvwAAAD8AAAC/AAAAPwAAAD8AAAC/AAAAvwAAAL/NzMy+zMzMvgAAAL/NzMy+zMzMvgAAAL8AAAC/AAAAPwAAAL/NzMy+zszMPs7MzD7NzMy+AAAAP87MzD7NzMy+AAAAP87MzD7NzMy+zMzMvs7MzD7NzMw+zszMPs7MzD7NzMw+AAAAP87MzD7NzMy+zszMPs7MzD7NzMy+AAAAv87MzD7NzMw+zMzMvs7MzD7NzMw+AAAAvwAAAL/NzMw+zMzMvgAAAL/NzMw+AAAAvwAAAL/NzMw+zMzMvs7MzD7NzMw+AAAAv87MzD7NzMw+AAAAP87MzD7NzMw+zszMPgAAAL/NzMw+AAAAPwAAAL/NzMw+zMzMvgAAAL/NzMy+AAAAv87MzD7NzMy+zMzMvs7MzD7NzMy+zszMPgAAAL/NzMw+AAAAP87MzD7NzMw+zszMPs7MzD7NzMw+zszMPs7MzD7NzMy+AAAAPwAAAL/NzMy+zszMPgAAAL/NzMy+zMzMvgAAAL/NzMy+AAAAvwAAAL/NzMy+AAAAv87MzD7NzMy+zMzMvs7MzD7NzMy+AAAAv87MzD7NzMy+AAAAv87MzD7NzMw+zszMPs7MzD7NzMw+AAAAP87MzD7NzMw+AAAAP87MzD7NzMy+AAAAv87MzD7NzMw+zMzMvs7MzD7NzMw+AAAAP87MzD7NzMy+AAAAv87MzD7NzMw+zszMPs7MzD7NzMy+zMzMvs7MzD7NzMy+zszMPs7MzD7NzMw+zszMPs7MzD4AAAA/zszMPgAAAL/NzMw+zszMPs7MzD4AAAA/zszMPs7MzD7NzMw+zMzMvs7MzD7NzMw+zMzMvgAAAL/NzMw+zMzMvgAAAL8AAAA/zMzMvs7MzD7NzMw+zMzMvs7MzD4AAAC/zMzMvgAAAL8AAAC/zMzMvgAAAL/NzMy+zszMPgAAAL8AAAC/zszMPs7MzD4AAAC/zszMPs7MzD7NzMy+zMzMvs7MzD7NzMy+zszMPs7MzD7NzMy+zszMPs7MzD4AAAC/zszMPs7MzD4AAAA/zszMPgAAAL8AAAA/zszMPgAAAL/NzMw+zMzMvs7MzD7NzMy+zMzMvs7MzD4AAAC/zMzMvgAAAL/NzMy+zszMPs7MzD7NzMy+zszMPgAAAL/NzMy+zszMPgAAAL8AAAC/zMzMvs7MzD7NzMy+zszMPs7MzD4AAAC/zMzMvs7MzD4AAAC/zMzMvs7MzD4AAAA/zszMPs7MzD4AAAA/zMzMvs7MzD7NzMw+zMzMvgAAAL8AAAA/zMzMvs7MzD4AAAA/zMzMvs7MzD7NzMw+/3//f////7//f/9/////v/9//3////+/AAD/f/9//78AAP9//3//vwAA/3//f/+//3//f////7//f/9/////v/9//3////+/AAD/f/9//78AAP9//3//vwAA/3//f/+//3//f////7//f/9/////v/9//3////+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//////wAA/7//////AAD/v/////8AAP+/////f/////////9//////////3///////38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+/////f/////////9//////////3///////////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/////f/////////9//////////3//////////f/////////9//////////3///////3///wAA/7//f///AAD/v/9///8AAP+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+/////f/////////9//////////3//////////f/////////9//////////3//////AAD/f/9//78AAP9//3//vwAA/3//f/+//3//f////7//f/9/////v/9//3////+/AAD/f/9//78AAP9//3//vwAA/3//f/+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//vwAA/3//f/+//38AAP///7//fwAA////v/9/AAD///+//////wAA/7//////AAD/v/////8AAP+//38AAP///7//fwAA////v/9/AAD///+//3///wAA/7//f///AAD/v/9///8AAP+//38AAP///7//fwAA////v/9/AAD///+//3//fwAA/7//f/9/AAD/v/9//38AAP+//38AAP//////fwAA///+//9/AAD//////38AAP//////fwAA//////9/AAD//////////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//////wAA/7//////AAD/v/////8AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//38AAP//////fwAA//////9/AAD//////38AAP//////fwAA//////9/AAD//////38AAP//////fwAA///+//9/AAD//////38AAP//////fwAA//////9/AAD/////AAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP//////fwAA//////9/AAD/////////f/9/AID///9//38AgP///3//fwCA////f/9/AID///9//38AgP///3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP//////fwAA//////9/AAD/////AAD/f/9/AIAAAP9//38AgAAA/3//fwCA////f/9/AID///9//38AgP///3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/38AAP//////fwAA//////9/AAD//////38AAP//////fwAA//////9/AAD/////////f/9/AID///9//38AgP///3//fwCA")
-}]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yatkp"]
-size = Vector3(0.585571, 0.0845977, 0.247299)
-
 [node name="SellBox" type="StaticBody3D"]
 script = ExtResource("1_0e26s")
 
@@ -68,30 +43,3 @@ shape = SubResource("BoxShape3D_hfxi2")
 debug_color = Color(1, 0, 0, 1)
 
 [node name="SellTimer" type="Timer" parent="."]
-
-[node name="Desk" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="DeskCollision" type="CollisionShape3D" parent="Desk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-shape = SubResource("ConcavePolygonShape3D_hfxi2")
-
-[node name="DeskMesh" type="MeshInstance3D" parent="Desk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
-mesh = SubResource("ArrayMesh_p4ku0")
-skeleton = NodePath("../..")
-
-[node name="SellScreen" parent="Desk" instance=ExtResource("2_p4ku0")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0146213, 0.50017, -0.339656)
-
-[node name="MoneyLabel" parent="Desk/SellScreen" index="3"]
-shaded = false
-
-[node name="Keyboard" parent="Desk" instance=ExtResource("4_0e26s")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0149692, 0.5, -0.860989)
-
-[node name="KeyboardCollision" type="CollisionShape3D" parent="Desk/Keyboard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000305172, 0.0440019, -0.00457001)
-shape = SubResource("BoxShape3D_yatkp")
-
-[editable path="Desk/SellScreen"]

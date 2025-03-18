@@ -31,6 +31,7 @@ public partial class Player : CharacterBody3D
     
     //State variables
     private bool _alive;
+    public bool Active;
     private bool _walking;
     private bool _sprinting;
     private bool _jumping;
@@ -75,6 +76,12 @@ public partial class Player : CharacterBody3D
     //Process unhandled input
     public override void _UnhandledInput(InputEvent @event)
     {
+        if (!_alive)
+            return;
+
+        if (!Active)
+            return;
+        
         //Handle player head rotation with mouse motion
         if (@event is InputEventMouseMotion)
         {
@@ -104,13 +111,16 @@ public partial class Player : CharacterBody3D
             QueueFree();
             return;
         }
+
+        //If player is inactive, stop calling functions
+        if (!Active)
+            return;
         
         //Call functions while player is alive
         UpdateStates();
         PlayerMovement(delta);
         PlayerGrab();
         HandleGrabbedBody(delta);
-        PlayerInventory();
     }
     
     //Initialize player properties
@@ -118,6 +128,7 @@ public partial class Player : CharacterBody3D
     {
         EmitSignalPlayerSpawn();
         _alive = true;
+        Active = true;
         _currentHealth = _maxHealth;
         _initialSpeed = _speed;
         _sprintSpeed = _initialSpeed * sprintMultiplier;
@@ -146,23 +157,17 @@ public partial class Player : CharacterBody3D
         //If player is in air, apply gravity
         if (!IsOnFloor())
         {
-            targetVelocity.Y -= 9.82f;
+            targetVelocity.Y -= 9.82f * (float)delta * 2f;
         }
         //If jump input is pressed, apply jump force
         if (Input.IsActionJustPressed("inputSpace"))
         {
-            targetVelocity.Y = _jumpForce;
+            targetVelocity.Y += _jumpForce;
         }
         //Set current velocity to target velocity
         Velocity = targetVelocity;
         //Apply movement
         MoveAndSlide();
-    }
-
-    //Handles player inventory
-    private void PlayerInventory()
-    {
-        
     }
     
     //Updates player states
@@ -237,6 +242,7 @@ public partial class Player : CharacterBody3D
                 grabbedPart.Grabbed = false;
             }
             _grabbedBody = null;
+            _grabMarker.Position = _defaultGrabMarkerPosition;
             return;
         }
 
@@ -248,6 +254,7 @@ public partial class Player : CharacterBody3D
                 var grabbedPart = _grabbedBody as BodyPart;
                 grabbedPart.Grabbed = false;
             }
+            _grabMarker.Position = _defaultGrabMarkerPosition;
             _grabbedBody = null;
             return;
         }

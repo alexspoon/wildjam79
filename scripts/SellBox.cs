@@ -1,19 +1,16 @@
 using Godot;
-using Godot.Collections;
 
 public partial class SellBox : StaticBody3D
 {
     private Area3D _sellArea;
     private Timer _sellTimer;
-    private Label3D _moneyLabel;
-    private float _currentMoney;
+    private GameManager _gameManager;
 
     public override void _Ready()
     {
+        _gameManager = GetNode<GameManager>("/root/GameManager");
         _sellArea = GetNode<Area3D>("SellArea");
         _sellTimer = GetNode<Timer>("SellTimer");
-        _moneyLabel = GetNode<Label3D>("Desk/SellScreen/MoneyLabel");
-        _moneyLabel.Text = "\u20bd" + 0;
         _sellArea.BodyEntered += HandleSelling;
     }
     
@@ -28,9 +25,8 @@ public partial class SellBox : StaticBody3D
             if (body is BodyPart)
             {
                 var bodyPart = body as BodyPart;
-                _currentMoney += bodyPart.BodyPartCurrentValue;
-                Mathf.Round(_currentMoney);
-                _moneyLabel.Text = "\u20bd"  + _currentMoney;
+                var value = bodyPart.BodyPartCurrentValue;
+                _gameManager.EmitSignal(nameof(GameManager.PartSold), value);
                 body.QueueFree();
             }
             else return;
